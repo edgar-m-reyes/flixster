@@ -13,7 +13,7 @@ Flixster is an app that allows users to browse movies from the [The Movie Databa
 
 #### REQUIRED (10pts)
 - [X] (2pts) User sees an app icon on the home screen and a styled launch screen.
-- [ ] (5pts) User can view and scroll through a list of movies now playing in theaters.
+- [X] (5pts) User can view and scroll through a list of movies now playing in theaters.
 - [ ] (3pts) User can view the movie poster image for each movie.
 
 #### BONUS
