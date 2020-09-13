@@ -25,4 +25,4 @@ Flixster is an app that allows users to browse movies from the [The Movie Databa
 <img src="https://raw.githubusercontent.com/majinE/flixster/master/unit1iOS.gif" width=250><br>
 
 ### Notes
-Describe any challenges encountered while building the app.
+Some of the challenges I had were finding certain features in XCode due to their UI change with their newest update. I also had some issues with cocoapods as all the dependencies listed in the codepath cocoapods weren't required in the final rendition of the project.
