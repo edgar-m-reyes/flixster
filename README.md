@@ -20,7 +20,6 @@ Flixster is an app that allows users to browse movies from the [The Movie Databa
 
 ### Notes
 Image sizes were the biggest issue I dealt with in this lab. There was a default setting that caused my collection view to estimate size which would force decrease the size of the poster images.
----
 
 ## Flix Part 1
 
