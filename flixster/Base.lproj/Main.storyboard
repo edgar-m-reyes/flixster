@@ -39,6 +39,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qgw-Kw-ijA">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="190" id="suk-jN-XCr" customClass="MovieCell" customModule="flixster" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="190"/>
@@ -122,7 +123,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="d9v-uy-KNj">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -172,6 +173,7 @@
                                         <size key="customSize" width="202" height="282"/>
                                         <connections>
                                             <outlet property="posterView" destination="dZj-Lh-ABJ" id="1DN-eD-e9T"/>
+                                            <segue destination="Hf5-7F-r4W" kind="show" id="x0F-FV-Ong"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -200,6 +202,10 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FqR-uy-6RS">
                                 <rect key="frame" x="0.0" y="88" width="414" height="248"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="I9M-Vn-bIe" appends="YES" id="rE9-lV-bBx"/>
+                                </connections>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RA8-um-H8Y">
                                 <rect key="frame" x="20" y="243" width="148" height="191"/>
@@ -232,8 +238,14 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GXn-Fi-lXp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="I9M-Vn-bIe">
+                    <connections>
+                        <action selector="poseterClicked:" destination="naP-QA-5IT" id="2Oi-bo-2I6"/>
+                        <segue destination="L6V-Pp-hFe" kind="presentation" identifier="moviesModal" id="vaq-xR-L3x"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="535" y="796"/>
+            <point key="canvasLocation" x="458" y="796"/>
         </scene>
         <!--Superhero-->
         <scene sceneID="VcG-aw-gYQ">
@@ -244,7 +256,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="s5p-d8-IS5">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -258,6 +270,97 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fcA-hK-l73" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1887" y="118"/>
+        </scene>
+        <!--Movie Details View Controller-->
+        <scene sceneID="O1c-xa-0FK">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ByQ-SJ-1cB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController id="Hf5-7F-r4W" customClass="MovieDetailsViewController" customModule="flixster" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleAspectFill" id="1fk-J2-ggY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ScL-Wd-WRP">
+                                <rect key="frame" x="0.0" y="88" width="414" height="248"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="cb0-hU-AKa" appends="YES" id="aks-RH-84a"/>
+                                </connections>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3hm-IW-FHT">
+                                <rect key="frame" x="20" y="243" width="148" height="191"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fJ3-v1-SXY">
+                                <rect key="frame" x="20" y="442" width="374" height="146"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="euh-WD-cls">
+                                <rect key="frame" x="176" y="378" width="218" height="24"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="int-Wb-xtm"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="glJ-We-aJZ"/>
+                    <connections>
+                        <outlet property="backdropView" destination="ScL-Wd-WRP" id="blc-Mf-HCT"/>
+                        <outlet property="posterView" destination="3hm-IW-FHT" id="Uxd-3r-1RA"/>
+                        <outlet property="synopsisLabel" destination="fJ3-v1-SXY" id="18w-il-EAb"/>
+                        <outlet property="titleLabel" destination="euh-WD-cls" id="OZL-zn-HjT"/>
+                    </connections>
+                </viewController>
+                <tapGestureRecognizer id="cb0-hU-AKa">
+                    <connections>
+                        <segue destination="8Z0-6h-rnb" kind="presentation" identifier="moviesModal" id="G1F-nY-nz6"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="2613" y="781"/>
+        </scene>
+        <!--Trailer View Controller-->
+        <scene sceneID="dXG-Ut-mC5">
+            <objects>
+                <viewController id="L6V-Pp-hFe" customClass="TrailerViewController" customModule="flixster" customModuleProvider="target" sceneMemberID="viewController">
+                    <wkWebView key="view" contentMode="scaleToFill" id="ZMe-Bm-Vw3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <wkWebViewConfiguration key="configuration">
+                            <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                            <wkPreferences key="preferences"/>
+                        </wkWebViewConfiguration>
+                    </wkWebView>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wAO-27-CBe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1174" y="796"/>
+        </scene>
+        <!--Trailer View Controller-->
+        <scene sceneID="GgE-X0-q8C">
+            <objects>
+                <viewController id="8Z0-6h-rnb" customClass="TrailerViewController" customModule="flixster" customModuleProvider="target" sceneMemberID="viewController">
+                    <wkWebView key="view" contentMode="scaleToFill" id="vLf-Vg-wLN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <wkWebViewConfiguration key="configuration">
+                            <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                            <wkPreferences key="preferences"/>
+                        </wkWebViewConfiguration>
+                    </wkWebView>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oNs-JI-cDm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3358" y="781"/>
         </scene>
     </scenes>
     <resources>

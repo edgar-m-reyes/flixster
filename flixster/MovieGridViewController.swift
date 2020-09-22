@@ -9,6 +9,7 @@
 import UIKit
 import AlamofireImage
 
+
 class MovieGridViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
@@ -67,6 +68,22 @@ class MovieGridViewController: UIViewController, UICollectionViewDataSource, UIC
         return cell
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            
+            // Find the selected movie
+            let cell = sender as! UICollectionViewCell
+            let indexPath = collectionView.indexPath(for: cell)!
+            let movie = movies[indexPath.row]
+            
+            // Pass the selected movie to the details view controller
+            let detailsViewController = segue.destination as! MovieDetailsViewController
+            detailsViewController.movie = movie
+            
+//            tableView.deselectRow(at: indexPath, animated: true)
+            
+    //         Get the new view controller using segue.destination.
+    //         Pass the selected object to the new view controller.
+        }
 
     /*
     // MARK: - Navigation

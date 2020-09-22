@@ -8,6 +8,7 @@
 
 import UIKit
 import AlamofireImage
+import WebKit
 
 class MovieDetailsViewController: UIViewController {
 
@@ -20,6 +21,10 @@ class MovieDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(poseterClicked(_:)))
+        gestureRecognizer.numberOfTapsRequired = 1
+        gestureRecognizer.numberOfTouchesRequired = 1
         
         titleLabel.text = movie["title"] as? String
         titleLabel.sizeToFit()
@@ -36,10 +41,25 @@ class MovieDetailsViewController: UIViewController {
         
         backdropView.af_setImage(withURL: backdropUrl!)
         
+        backdropView.addGestureRecognizer(gestureRecognizer)
+        backdropView.isUserInteractionEnabled = true
+        
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func poseterClicked(_ sender: UITapGestureRecognizer) {
+        performSegue(withIdentifier: "moviesModal", sender: self)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Pass the selected movie to the details view controller
+        if segue.identifier == "moviesModal"{
+            let detailsViewController = segue.destination as! TrailerViewController
+            detailsViewController.movie_id = movie["id"] as! Int
+        }
+        
+    }
     /*
     // MARK: - Navigation
 
