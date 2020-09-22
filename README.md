@@ -11,15 +11,16 @@ Flixster is an app that allows users to browse movies from the [The Movie Databa
 - [X] (5pts) User can tap a tab bar button to view a grid layout of Movie Posters using a CollectionView.
 
 #### BONUS
-- [ ] (2pts) User can tap a poster in the collection view to see a detail screen of that movie.
-- [ ] (2pts) In the detail view, when the user taps the poster, a new screen is presented modally where they can view the trailer.
+- [X] (2pts) User can tap a poster in the collection view to see a detail screen of that movie.
+- [X] (2pts) In the detail view, when the user taps the poster, a new screen is presented modally where they can view the trailer.
 
 ### App Walkthrough GIF
 
-<img src="https://raw.githubusercontent.com/majinE/flixster/master/unit2iOS.gif" width=250><br>
+<img src="https://raw.githubusercontent.com/majinE/flixster/master/unit2iOS.gif" width=250>
+<img src="https://raw.githubusercontent.com/majinE/flixster/master/bonusesUnit2.gif" width=250><br>
 
 ### Notes
-Image sizes were the biggest issue I dealt with in this lab. There was a default setting that caused my collection view to estimate size which would force decrease the size of the poster images.
+Image sizes were the biggest issue I dealt with in this lab. There was a default setting that caused my collection view to estimate size which would force decrease the size of the poster images. Also waiting for the api request to fully finish caused some errors when requesting the youtube link to the movies.
 
 ## Flix Part 1
 
